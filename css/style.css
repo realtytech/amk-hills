@@ -4289,13 +4289,13 @@ Image credits: unsplash.com
   background-repeat: no-repeat;
 }
 .fade-carousel .slides .slide-1 {
-  background-image: url('/images/AMK/Banners/Picture5.jpg'); 
+  background-image: url('/images/AMK/Banners/Picture1.jpg'); 
 }
 .fade-carousel .slides .slide-2 {
-  background-image: url('/images/AMK/Banners/Picture6.jpg'); 
+  background-image: url('/images/AMK/Banners/Picture2.png'); 
 }
 .fade-carousel .slides .slide-3 {
-  background-image: url('/images/AMK/Banners/Picture7.jpg'); 
+  background-image: url('/images/AMK/Banners/Picture3.jpg'); 
 }
 .fade-carousel .slides .slide-1m, 
 .fade-carousel .slides .slide-2m,
@@ -4307,15 +4307,15 @@ Image credits: unsplash.com
   background-repeat: no-repeat;
 }
 .fade-carousel .slides .slide-1m {
-    background-image: url('/images/AMK/Banners/Picture5.jpg'); 
+    background-image: url('/images/AMK/Banners/Picture1.jpg'); 
     max-width: 100vw;
   }
   .fade-carousel .slides .slide-2m {
-    background-image: url('/images/AMK/Banners/Picture6.jpg'); 
+    background-image: url('/images/AMK/Banners/Picture2.png'); 
     max-width: 100vw;
   }
   .fade-carousel .slides .slide-3m {
-    background-image: url('/images/AMK/Banners/Picture7.jpg'); 
+    background-image: url('/images/AMK/Banners/Picture3.jpg'); 
     max-width: 100vw;
   }
   .fade-carousel .slides .slide-1m img,

@@ -104,26 +104,28 @@ $("#leadForm-popup").submit(function (e) {
     }
 
 
-    // var srd = selectSRD(utm_source, utm_campaign);
-    var srd = queryParameter('srd', currentUrl);
-    if (!srd) srd = '7015g0000004xf7';
+    var project = 'AMK Hills';
+    var utm_source = queryParameter('utm_source', currentUrl);
+    var utm_medium = queryParameter('utm_medium', currentUrl);
+    var sourceMapping = {
+        'Google_Brand%20Search': "Google Search",
+        'google_display': "Google Display",
+        "Google%20Discovery": "Google Discovery",
+        "": "Website"
+    }
 
-    var project = 'Dosti Realty - Eastern Bay';
-    var utm_source = queryParameter('utm_source',currentUrl);
-    var utm_medium = queryParameter('utm_medium',currentUrl);
+    var source = (utm_medium) ? sourceMapping[utm_medium] : "Website";
     var data = {
         "name": name,
         "mobile": mobile,
         "email": email,
-        "url": currentUrl,
-        "did": srd,
-        "UTMSource":utm_source,
-        "UTMmedium":utm_medium,
-        "projectName": project
-
+        "source": source,
+        "comment":"URL:"+currentUrl.substring(0,255)+" UTM Source:"+utm_source+" UTM Medium:"+utm_medium,
+        "sub_source":utm_medium,
+        "project": project
+    
     }
-
-    storeLeadInSFDC(data);
+    storeLeadInEnrichr(data,formName);
     return;
 
     $.ajax({
@@ -140,7 +142,7 @@ $("#leadForm-popup").submit(function (e) {
         success: function (response) {
             console.log(JSON.parse(response));
             storeLeadInDB(name, email, mobile, JSON.stringify(response));
-            setTimeout(function redirect_response(){window.location.href = "response.html";}, 1000)
+            setTimeout(function redirect_response() { window.location.href = "response.html"; }, 1000)
         },
         error: function (xhr) {
             //Do Something to handle error
@@ -207,22 +209,28 @@ $("#leadForm").submit(function (e) {
     var srd = queryParameter('srd', currentUrl);
     if (!srd) srd = '7015g0000004xf7';
 
-    var project = 'Dosti Realty - Eastern Bay';
-    var utm_source = queryParameter('utm_source',currentUrl);
-    var utm_medium = queryParameter('utm_medium',currentUrl);
+    var project = 'AMK Hills';
+    var utm_source = queryParameter('utm_source', currentUrl);
+    var utm_medium = queryParameter('utm_medium', currentUrl);
+    var sourceMapping = {
+        'Google_Brand%20Search': "Google Search",
+        'google_display': "Google Display",
+        "Google%20Discovery": "Google Discovery",
+        "": "Website"
+    }
+
+    var source = (utm_medium) ? sourceMapping[utm_medium] : "Website";
     var data = {
         "name": name,
         "mobile": mobile,
         "email": email,
-        "url": currentUrl,
-        "did": srd,
-        "UTMSource":utm_source,
-        "UTMmedium":utm_medium,
-        "projectName": project
-
+        "source": source,
+        "comment":"URL:"+currentUrl.substring(0,255)+" UTM Source:"+utm_source+" UTM Medium:"+utm_medium,
+        "sub_source":utm_medium,
+        "project": project
+    
     }
-
-    storeLeadInSFDC(data);
+    storeLeadInEnrichr(data,formName);
     return;
 
     $.ajax({
@@ -238,8 +246,8 @@ $("#leadForm").submit(function (e) {
         },
         success: function (response) {
             console.log(JSON.parse(response));
-            storeLeadInDB(name, email, mobile, JSON.stringify(response),formName);
-            setTimeout(function redirect_response(){window.location.href = "response.html";}, 1000)
+            storeLeadInDB(name, email, mobile, JSON.stringify(response), formName);
+            setTimeout(function redirect_response() { window.location.href = "response.html"; }, 1000)
         },
         error: function (xhr) {
             //Do Something to handle error
@@ -301,22 +309,28 @@ $("#leadFormMobile").submit(function (e) {
     var srd = queryParameter('srd', currentUrl);
     if (!srd) srd = '7015g0000004xf7';
 
-    var project = 'Dosti Realty - Eastern Bay';
-    var utm_source = queryParameter('utm_source',currentUrl);
-    var utm_medium = queryParameter('utm_medium',currentUrl);
+    var project = 'AMK Hills';
+    var utm_source = queryParameter('utm_source', currentUrl);
+    var utm_medium = queryParameter('utm_medium', currentUrl);
+    var sourceMapping = {
+        'Google_Brand%20Search': "Google Search",
+        'google_display': "Google Display",
+        "Google%20Discovery": "Google Discovery",
+        "": "Website"
+    }
+
+    var source = (utm_medium) ? sourceMapping[utm_medium] : "Website";
     var data = {
         "name": name,
         "mobile": mobile,
         "email": email,
-        "url": currentUrl,
-        "did": srd,
-        "UTMSource":utm_source,
-        "UTMmedium":utm_medium,
-        "projectName": project
-
+        "source": source,
+        "comment":"URL:"+currentUrl.substring(0,255)+" UTM Source:"+utm_source+" UTM Medium:"+utm_medium,
+        "sub_source":utm_medium,
+        "project": project
+    
     }
-
-    storeLeadInSFDC(data);
+    storeLeadInEnrichr(data,formName);
     return;
 
 
@@ -335,7 +349,7 @@ $("#leadFormMobile").submit(function (e) {
         success: function (response) {
             console.log(JSON.parse(response));
             storeLeadInDB(name, email, mobile, JSON.stringify(response));
-            setTimeout(function redirect_response(){window.location.href = "response.html";}, 1000)
+            setTimeout(function redirect_response() { window.location.href = "response.html"; }, 1000)
         },
         error: function (xhr) {
             //Do Something to handle error
@@ -446,17 +460,40 @@ function storeLeadInSFDC(data) {
         "url": "https://l3g8sgyj77.execute-api.ap-south-1.amazonaws.com/Production",
         "method": "POST",
         "headers": {
-          "content-type": "application/json",          
+            "content-type": "application/json",
         },
         "processData": false,
         "data": JSON.stringify(data)
-      }
-      
-      $.ajax(settings).done(function (response) {
+    }
+
+    $.ajax(settings).done(function (response) {
         console.log(response);
         storeLeadInDB(data["name"], data["email"], data["mobile"], JSON.stringify(response));
         setTimeout(function redirect_response() { window.location.href = "response.html"; }, 1000)
-      }); 
+    });
+
+}
+
+function storeLeadInEnrichr(data, formName) {
+    console.log("Adding Data to Enrichr");
+    console.log(data)
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://pinkode.glitz.apps.enrichr.co/public/companies/41b21e3e-600b-4d9f-aab1-bfb72c5b915e/leads-all",
+        "method": "POST",
+        "headers": {
+            "content-type": "application/json",
+        },
+        "processData": false,
+        "data": JSON.stringify(data)
+    }
+
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+        storeLeadInDB(data["name"], data["email"], data["mobile"], JSON.stringify(response), formName);
+        setTimeout(function redirect_response() { window.location.href = "response.html"; }, 2000)
+    });
 
 }
 
@@ -500,8 +537,8 @@ function storeLeadInDB(name, email, mobile, response, formName) {
         "fbclid": fbclid,
         "response": response,
         "formName": formName,
-        "url":currentUrl,
-        "srd":srd
+        "url": currentUrl,
+        "srd": srd
 
     }
     const formURL = 'https://dj2kxzt125.execute-api.ap-south-1.amazonaws.com/Prod/submitForm';

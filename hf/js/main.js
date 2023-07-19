@@ -129,7 +129,7 @@ $("#leadForm-popup").submit(function (e) {
     }
 
 
-    var project = 'AMK Hills';
+    var project = 'HFM Alang Madan Kulang Hills';
     var utm_source = queryParameter('utm_source', currentUrl);
     var utm_medium = queryParameter('utm_medium', currentUrl);
     var sourceMapping = {
@@ -234,7 +234,7 @@ $("#leadForm").submit(function (e) {
     var srd = queryParameter('srd', currentUrl);
     if (!srd) srd = '7015g0000004xf7';
 
-    var project = 'AMK Hills';
+    var project = 'HFM Alang Madan Kulang Hills';
     var utm_source = queryParameter('utm_source', currentUrl);
     var utm_medium = queryParameter('utm_medium', currentUrl);
     var sourceMapping = {
@@ -334,7 +334,7 @@ $("#leadFormMobile").submit(function (e) {
     var srd = queryParameter('srd', currentUrl);
     if (!srd) srd = '7015g0000004xf7';
 
-    var project = 'AMK Hills';
+    var project = 'HFM Alang Madan Kulang Hills';
     var utm_source = queryParameter('utm_source', currentUrl);
     var utm_medium = queryParameter('utm_medium', currentUrl);
     var sourceMapping = {
@@ -539,7 +539,7 @@ function storeLeadInDB(name, email, mobile, response, formName) {
     var srd = queryParameter('srd', currentUrl);
 
 
-    var project = 'Dosti Realty - Eastern Bay';
+    var project = 'HFM Alang Madan Kulang Hills';
     var timestamp = Date();
     data = {
         "formId": String(Math.floor(Date.now() / 1000)),

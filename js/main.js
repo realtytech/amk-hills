@@ -159,7 +159,7 @@ $("#leadForm-popup").submit(function (e) {
         "mobile": mobile,
         "email": email,
         "source": source,
-        "comment":"URL:"+currentUrl.substring(0,255)+"|Source:"+utm_source+"|Medium:"+utm_medium+"|term:"+utm_term+"|content:"+utm_content+"|campaign:"+utm_campaign,
+        "comment":"Source:"+utm_source+"|Medium:"+utm_medium+"|term:"+utm_term+"|content:"+utm_content+"|campaign:"+utm_campaign+"|URL:"+currentUrl.substring(0,255),
         "sub_source":utm_medium,
         "project": project
     
@@ -270,7 +270,7 @@ $("#leadForm").submit(function (e) {
         "mobile": mobile,
         "email": email,
         "source": source,
-        "comment":"URL:"+currentUrl.substring(0,255)+"|Source:"+utm_source+"|Medium:"+utm_medium+"|term:"+utm_term+"|content:"+utm_content+"|campaign:"+utm_campaign,
+        "comment":"Source:"+utm_source+"|Medium:"+utm_medium+"|term:"+utm_term+"|content:"+utm_content+"|campaign:"+utm_campaign+"|URL:"+currentUrl.substring(0,255),
         "sub_source":utm_medium,
         "project": project
     
@@ -376,7 +376,7 @@ $("#leadFormMobile").submit(function (e) {
         "mobile": mobile,
         "email": email,
         "source": source,
-        "comment":"URL:"+currentUrl.substring(0,255)+"|Source:"+utm_source+"|Medium:"+utm_medium+"|term:"+utm_term+"|content:"+utm_content+"|campaign:"+utm_campaign,
+        "comment":"Source:"+utm_source+"|Medium:"+utm_medium+"|term:"+utm_term+"|content:"+utm_content+"|campaign:"+utm_campaign+"|URL:"+currentUrl.substring(0,255),
         "sub_source":utm_medium,
         "project": project
     

@@ -147,7 +147,7 @@ $("#leadForm-popup").submit(function (e) {
     var source = "Website"
     if(utm_source){
         if(utm_source=="google"){
-            source = (utm_term) ?  "Google Search" : "Google Display";
+            source = (utm_term) ?  "Google Search" : "Google Discovery";
         }else if(utm_source=="facebook"){
             source = "Facebook";
         }
@@ -259,7 +259,7 @@ $("#leadForm").submit(function (e) {
     
     if(utm_source){
         if(utm_source=="google"){
-            source = (utm_term) ?  "Google Search" : "Google Display";
+            source = (utm_term) ?  "Google Search" : "Google Discovery";
         }else if(utm_source=="facebook"){
             source = "Facebook";
         }
@@ -365,7 +365,7 @@ $("#leadFormMobile").submit(function (e) {
     
     if(utm_source){
         if(utm_source=="google"){
-            source = (utm_term) ?  "Google Search" : "Google Display";
+            source = (utm_term) ?  "Google Search" : "Google Discovery";
         }else if(utm_source=="facebook"){
             source = "Facebook";
         }

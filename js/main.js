@@ -127,6 +127,16 @@ $("#leadForm-popup").submit(function (e) {
             return;
         }
     }
+    var location = $("#location-popup").val();
+    var city = $("#city-popup").val();
+    if (location == "") {
+        alert('Please enter your location');
+        return;
+    }
+    if (city == "") {
+        alert('Please enter your city');
+        return;
+    }
 
 
     var project = 'AMK Hills';
@@ -152,14 +162,14 @@ $("#leadForm-popup").submit(function (e) {
             source = "Facebook";
         }
         
-    }
+    }   
 
     var data = {
         "name": name,
         "mobile": mobile,
         "email": email,
         "source": source,
-        "comment":"Source:"+utm_source+"|Medium:"+utm_medium+"|term:"+utm_term+"|content:"+utm_content+"|campaign:"+utm_campaign+"|URL:"+currentUrl.substring(0,255),
+        "comment":"City:"+city+"Location:"+location+"|Source:"+utm_source+"|Medium:"+utm_medium+"|term:"+utm_term+"|content:"+utm_content+"|campaign:"+utm_campaign+"|URL:"+currentUrl.substring(0,255),
         "sub_source":utm_medium,
         "project": project
     
@@ -242,6 +252,16 @@ $("#leadForm").submit(function (e) {
             return;
         }
     }
+    var location = $("#location").val();
+    var city = $("#city").val();
+    if (location == "") {
+        alert('Please enter your location');
+        return;
+    }
+    if (city == "") {
+        alert('Please enter your city');
+        return;
+    }
 
 
     // var srd = selectSRD(utm_source, utm_campaign);
@@ -270,7 +290,7 @@ $("#leadForm").submit(function (e) {
         "mobile": mobile,
         "email": email,
         "source": source,
-        "comment":"Source:"+utm_source+"|Medium:"+utm_medium+"|term:"+utm_term+"|content:"+utm_content+"|campaign:"+utm_campaign+"|URL:"+currentUrl.substring(0,255),
+        "comment":"City:"+city+"Location:"+location+"|Source:"+utm_source+"|Medium:"+utm_medium+"|term:"+utm_term+"|content:"+utm_content+"|campaign:"+utm_campaign+"|URL:"+currentUrl.substring(0,255),
         "sub_source":utm_medium,
         "project": project
     
@@ -349,6 +369,17 @@ $("#leadFormMobile").submit(function (e) {
         }
     }
 
+    var location = $("#m-location").val();
+    var city = $("#m-city").val();
+    if (location == "") {
+        alert('Please enter your location');
+        return;
+    }
+    if (city == "") {
+        alert('Please enter your city');
+        return;
+    }
+
 
     // var srd = selectSRD(utm_source, utm_campaign);
     var srd = queryParameter('srd', currentUrl);
@@ -376,7 +407,7 @@ $("#leadFormMobile").submit(function (e) {
         "mobile": mobile,
         "email": email,
         "source": source,
-        "comment":"Source:"+utm_source+"|Medium:"+utm_medium+"|term:"+utm_term+"|content:"+utm_content+"|campaign:"+utm_campaign+"|URL:"+currentUrl.substring(0,255),
+        "comment":"City:"+city+"Location:"+location+"|Source:"+utm_source+"|Medium:"+utm_medium+"|term:"+utm_term+"|content:"+utm_content+"|campaign:"+utm_campaign+"|URL:"+currentUrl.substring(0,255),
         "sub_source":utm_medium,
         "project": project
     
